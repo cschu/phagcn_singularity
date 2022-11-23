@@ -53,20 +53,28 @@ export PATH=$PATH:/opt/software/miniconda3/bin:/opt/software/PhaGCN
   chmod a+x PhaGCN/*.py
 
   # https://stackoverflow.com/questions/16529716/save-modifications-in-place-with-awk
-  # echo "$(awk '{awk code}' file)" > file
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/config.py)" > PhaGCN/config.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/data.py)" > PhaGCN/data.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/layer.py)" > PhaGCN/layer.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/model.py)" > PhaGCN/model.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/run_CNN.py)" > PhaGCN/run_CNN.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/run_CreateGraph.py)" > PhaGCN/run_CreateGraph.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/run_GCN.py)" > PhaGCN/run_GCN.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/run_KnowledgeGraph.py)" > PhaGCN/run_KnowledgeGraph.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/run_Speed_up.py)" > PhaGCN/run_Speed_up.py
-  echo "$(awk '{if (NR==1) print "\#!/usr/bin/python3\n"; print $0; }' PhaGCN/utils.py)" > PhaGCN/utils.py
-
-
-  
+  # echo "$(awk '{awk code}' file > file
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/config.py > PhaGCN/config.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/data.py > PhaGCN/data.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/layer.py > PhaGCN/layer.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/model.py > PhaGCN/model.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/run_CNN.py > PhaGCN/run_CNN.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/run_CreateGraph.py > PhaGCN/run_CreateGraph.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/run_GCN.py > PhaGCN/run_GCN.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/run_KnowledgeGraph.py > PhaGCN/run_KnowledgeGraph.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/run_Speed_up.py > PhaGCN/run_Speed_up.py.111
+  awk '{if (NR==1) print "\#!/usr/bin/env python3\n"; print $0; }' PhaGCN/utils.py > PhaGCN/utils.py.111
+  rm -f PhaGCN/*.py
+  mv PhaGCN/config.py.111 PhaGCN/config.py
+  mv PhaGCN/data.py.111 PhaGCN/data.py
+  mv PhaGCN/layer.py.111 PhaGCN/layer.py
+  mv PhaGCN/model.py.111 PhaGCN/model.py
+  mv PhaGCN/run_CNN.py.111 PhaGCN/run_CNN.py
+  mv PhaGCN/run_CreateGraph.py.111 PhaGCN/run_CreateGraph.py
+  mv PhaGCN/run_GCN.py.111 PhaGCN/run_GCN.py
+  mv PhaGCN/run_KnowledgeGraph.py.111 PhaGCN/run_KnowledgeGraph.py
+  mv PhaGCN/run_Speed_up.py.111 PhaGCN/run_Speed_up.py
+  mv PhaGCN/utils.py.111 PhaGCN/utils.py
 
   /opt/software/miniconda3/bin/conda env update --file PhaGCN/environment.yaml --prune
 
