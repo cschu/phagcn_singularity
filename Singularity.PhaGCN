@@ -50,7 +50,7 @@ export PATH=$PATH:/opt/software/miniconda3/bin:/opt/software/PhaGCN
 
   cd /opt/software
   git clone https://github.com/KennthShang/PhaGCN.git
-  chmod a+x PhaGCN/*.py
+  /opt/software/miniconda3/bin/conda env update --file PhaGCN/environment.yaml --prune
 
   # https://stackoverflow.com/questions/16529716/save-modifications-in-place-with-awk
   # echo "$(awk '{awk code}' file > file
@@ -75,6 +75,5 @@ export PATH=$PATH:/opt/software/miniconda3/bin:/opt/software/PhaGCN
   mv PhaGCN/run_KnowledgeGraph.py.111 PhaGCN/run_KnowledgeGraph.py
   mv PhaGCN/run_Speed_up.py.111 PhaGCN/run_Speed_up.py
   mv PhaGCN/utils.py.111 PhaGCN/utils.py
-
-  /opt/software/miniconda3/bin/conda env update --file PhaGCN/environment.yaml --prune
+  chmod -R a+x PhaGCN/
 
